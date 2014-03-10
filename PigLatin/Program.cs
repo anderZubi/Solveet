@@ -38,9 +38,7 @@ mayúscula su traducción también debe empezar con mayúscula).
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace PigLatin
 {
