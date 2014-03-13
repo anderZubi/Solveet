@@ -11,7 +11,12 @@ namespace ContadorBinarioBacktracking
             while (!String.IsNullOrEmpty(input))
             {
                 string result = "";
+
+                DateTime time = DateTime.Now;
+
                 BinaryCounter(int.Parse(input), result);
+
+                Console.WriteLine(DateTime.Now - time);
 
                 input = Console.ReadLine();
             }
@@ -27,5 +32,7 @@ namespace ContadorBinarioBacktracking
                 BinaryCounter(n, result + "1");
             }
         }
+
+
     }
 }
