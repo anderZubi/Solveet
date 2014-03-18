@@ -35,28 +35,43 @@ namespace BacktrackingBinarioMN
                 string m = Console.ReadLine();
                 string result = "";
 
+                count = 0;
+
                 DateTime time = DateTime.Now;
 
                 BinaryCounter(int.Parse(n), int.Parse(m), result);
 
                 Console.WriteLine(DateTime.Now - time);
 
+                Console.WriteLine("BinaryCounter calls: " + count.ToString());
+
                 n = Console.ReadLine();
             }
         }
 
+        static int count = 0;
+
         private static void BinaryCounter(int n, int m, string result)
         {
-            if (n == result.Length && result.Where(x => x == '1').Count() == m)
+            count++;
+
+            if (n == 0)
+            {
                 Console.WriteLine(result);
-            else if (result.Where(x => x == '1').Count() == m)
-            {
-                BinaryCounter(n, m, result + "0");
             }
-            else if (result.Length < n && n - result.Length >=  m - result.Where(x => x == '1').Count())
+            else if (m == 0)
             {
-                BinaryCounter(n, m, result + "0");
-                BinaryCounter(n, m, result + "1");
+                BinaryCounter(n - 1, m, result + "0");
+            }
+            else if (m > 0 && m == n)
+            {
+                
+                BinaryCounter(n - 1, m - 1, result + "1");
+            }
+            else if (m > 0 && m < n)
+            {
+                BinaryCounter(n - 1, m, result + "0");
+                BinaryCounter(n - 1, m - 1, result + "1");
             }
         }
     }
